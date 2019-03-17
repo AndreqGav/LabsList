@@ -1,20 +1,20 @@
 #include "stdafx.h"
 #include "List.h"
 
-void add(Node **first, int value)
+void List::add(int value)
 {
 	Node *pv = new Node;
 	pv->value = value;
 	pv->next = NULL;
 
-	if (*first == NULL)
+	if (first == NULL)
 	{
-		*first = pv;
+		first = pv;
 	}
 	else
 	{
 		Node *cur;
-		cur = *first;
+		cur = first;
 
 		while (cur->next != NULL)
 		{
@@ -24,7 +24,7 @@ void add(Node **first, int value)
 	}
 }
 
-void print(Node *first)
+void List::print()
 {
 	if (first == NULL) {
 		cout << "empty" << endl;
@@ -40,7 +40,7 @@ void print(Node *first)
 	cout << endl;
 }
 
-int length(Node *first)
+int List::length()
 {
 	if (first == NULL)
 		return 0;
@@ -55,10 +55,10 @@ int length(Node *first)
 	return i;
 }
 
-int value(Node *first, int index)
+int List::value(int index)
 {
 	Node *cur;
-	if (index > (length(first) - 1) || index < 0)
+	if (index > (length() - 1) || index < 0)
 	{
 		cerr << "Индекс вышел за грани списка \n";
 		return 0;
@@ -76,21 +76,21 @@ int value(Node *first, int index)
 	return cur->value;
 }
 
-void remove(Node ** first, int index)
+void List::remove(int index)
 {
-	if (*first == NULL)
+	if (first == NULL)
 	{
 		cerr << "Список пуст!";
 		return;
 	}
 	else
 	{
-		if (index > (length(*first) - 1) || index < 0)
+		if (index > (length() - 1) || index < 0)
 		{
 			cerr << "Не найдет элемент с заданным индексом\n";
 			return;
 		}
-		Node *cur = *first;
+		Node *cur = first;
 		Node *prev = NULL;
 		int i = 0;
 
@@ -105,7 +105,7 @@ void remove(Node ** first, int index)
 		}
 		else
 		{
-			*first = cur->next;
+			first = cur->next;
 		}
 		delete cur;
 	}

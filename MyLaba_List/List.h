@@ -4,14 +4,22 @@
 
 using namespace std;
 
-struct Node
-{
-	int value;
-	Node *next;
-};
+class List {
 
-void add(Node **, int);
-void print(Node*);
-int length(Node *);
-int value(Node *, int);
-void remove(Node**, int);
+private:
+	struct Node
+	{
+		int value;
+		Node *next;
+	};
+
+	Node *first = NULL;
+
+public:
+
+	void add(int);
+	void print();
+	int length();
+	int value(int);
+	void remove(int);
+};

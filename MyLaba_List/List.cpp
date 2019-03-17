@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "List.h"
 
 void List::add(int value)
@@ -60,7 +60,7 @@ int List::value(int index)
 	Node *cur;
 	if (index > (length() - 1) || index < 0)
 	{
-		cerr << "Èíäåêñ âûøåë çà ãðàíè ñïèñêà \n";
+		cerr << "Ð˜Ð½Ð´ÐµÐºÑ Ð²Ñ‹ÑˆÐµÐ» Ð·Ð° Ð³Ñ€Ð°Ð½Ð¸ ÑÐ¿Ð¸ÑÐºÐ° \n";
 		return 0;
 	}
 	else
@@ -80,14 +80,14 @@ void List::remove(int index)
 {
 	if (first == NULL)
 	{
-		cerr << "Ñïèñîê ïóñò!";
+		cerr << "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¿ÑƒÑÑ‚!";
 		return;
 	}
 	else
 	{
 		if (index > (length() - 1) || index < 0)
 		{
-			cerr << "Íå íàéäåò ýëåìåíò ñ çàäàííûì èíäåêñîì\n";
+			cerr << "ÐÐµ Ð½Ð°Ð¹Ð´ÐµÑ‚ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ñ Ð·Ð°Ð´Ð°Ð½Ð½Ñ‹Ð¼ Ð¸Ð½Ð´ÐµÐºÑÐ¾Ð¼\n";
 			return;
 		}
 		Node *cur = first;
@@ -109,4 +109,62 @@ void List::remove(int index)
 		}
 		delete cur;
 	}
+}
+
+int & List::GetSetIndex(int index)
+{
+	zero = 0;
+
+	if (index > (length() - 1) || index < 0)
+	{
+		cerr << "Ð˜Ð½Ð´ÐµÐºÑ Ð²Ñ‹ÑˆÐµÐ» Ð·Ð° Ð³Ñ€Ð°Ð½Ð¸ ÑÐ¿Ð¸ÑÐºÐ° \n";
+	}
+	else
+	{
+		int i = 0;
+		Node *pv = first;
+		while (i != index)
+		{
+			pv = pv->next;
+			++i;
+		}
+		return pv->value;
+	}
+	return zero;
+}
+
+int & List:: operator[](int index)
+{
+	return GetSetIndex(index);
+}
+
+void List::sort(bool ascending)
+{
+	int len = length();
+
+	Node *cur_i, *cur_j;
+	int i, j;
+	for (cur_i = first,i = 0; i < len-1; cur_i=cur_i->next,i++)
+	{
+		for (cur_j = first, j = 0; j < len - i - 1; cur_j = cur_j->next, j++)
+		{
+			int a = cur_j->value, b = cur_j->next->value;
+
+			if (a > b && ascending || a < b && !ascending)
+			{
+				swap(cur_j->value, cur_j->next->value);
+			}
+		}
+	}
+}
+
+List List::sorted(bool ascending)
+{
+	List newList;
+	for (int i = 0; i < length(); ++i)
+	{
+		newList.add(value(i));
+	}
+	newList.sort(ascending);
+	return newList;
 }

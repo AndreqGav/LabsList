@@ -14,6 +14,9 @@ private:
 	};
 
 	Node *first = NULL;
+	int zero = 0;
+
+	int & GetSetIndex(int);
 
 public:
 
@@ -22,4 +25,8 @@ public:
 	int length();
 	int value(int);
 	void remove(int);
+
+	int &operator [] (int);
+	void sort(bool);
+	List sorted(bool);
 };

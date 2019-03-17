@@ -1,2 +1,10 @@
-﻿  List.cpp
+﻿  MyLaba_List.cpp
+c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(19): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(20): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(32): warning C4305: аргумент: усечение из "double" к "float"
+c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\list.h(190): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+  c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\list.h(181): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(37): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void List<float>::sort(bool)"
+  c:\users\810777\documents\visual studio 2015\projects\mylaba_list\mylaba_list\mylaba_list.cpp(11): note: см. ссылку на создание экземпляров класса шаблон при компиляции "List<float>"
   MyLaba_List.vcxproj -> C:\Users\810777\Documents\Visual Studio 2015\Projects\MyLaba_List\Debug\MyLaba_List.exe
